@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+    com-javierhardman:
+        container_name: com-javierhardman
+        ports:
+            - 3001:80
+        image: com-javierhardman:nginx
+        networks:
+            nginxproxymanager:
+                ipv4_address: '${NGINXPROXYMANAGER_FRONTEND}'
+        restart: unless-stopped
+networks:
+    nginxproxymanager:
+        external: true
